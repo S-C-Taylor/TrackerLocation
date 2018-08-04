@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.abhiandroid.GoogleMaps.googlemaps.application.ExampleApplication;
 import com.abhiandroid.GoogleMaps.googlemaps.application.network.ExampleService;
 import com.abhiandroid.GoogleMaps.googlemaps.models.TrackerLocation;
+import com.abhiandroid.GoogleMaps.googlemaps.models.TrackerRecord;
 import com.abhiandroid.GoogleMaps.googlemaps.screens.map.dagger.components.DaggerMapActivityComponent;
 import com.abhiandroid.GoogleMaps.googlemaps.screens.map.dagger.components.MapActivityComponent;
 import com.google.android.gms.common.ConnectionResult;
@@ -148,8 +149,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         final TrackerLocation newLocation = new TrackerLocation(Double.toString(locations.getLatitude()),
                                                           Double.toString(locations.getLongitude()));
-
-        service.updateLocation(newLocation)
+        final TrackerRecord newRecord = new TrackerRecord(1, "Bob", newLocation);
+        service.updateRecord(1, newRecord)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Action() {

@@ -38,7 +38,7 @@ public class ExampleServiceModule {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
-                .baseUrl("https://sampleapi-15946.firebaseio.com/")
+                .baseUrl("https://dispatch-soak.firebaseio.com/")
                 .build();
     }
 }
